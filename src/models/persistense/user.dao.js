@@ -4,7 +4,7 @@ const getAll = () => {
   return users;
 };
 const insertUser = (details) => {
-  const newUser = { ...details,  id: users.length + 1 };
+  const newUser = { ...details, id: users.length + 1 };
   users.push(newUser);
   return newUser;
 };

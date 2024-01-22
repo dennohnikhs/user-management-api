@@ -8,16 +8,15 @@ const STATUS = {
 
 const getAllUsers = (req, res) => {
   const users = userService.getAllUsers();
-
-  if (users) {
-    return res.status(StatusCodes.OK).send({
-      status: STATUS.success,
-      users: users,
+  if (users.length === 0) {
+    return res.status(StatusCodes.NOT_FOUND).send({
+      status: STATUS.failure,
+      message: "No users was found",
     });
   }
-  return res.status(StatusCodes.NOT_FOUND).send({
-    status: STATUS.failure,
-    message: "No users found",
+  return res.status(StatusCodes.OK).send({
+    status: STATUS.success,
+    users: users,
   });
 };
 const getOneUser = (req, res) => {
