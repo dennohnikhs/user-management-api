@@ -11,7 +11,7 @@ const getAllUsers = (req, res) => {
   if (users.length === 0) {
     return res.status(StatusCodes.NOT_FOUND).send({
       status: STATUS.failure,
-      message: "No users was found",
+      message: "No user found",
     });
   }
   return res.status(StatusCodes.OK).send({

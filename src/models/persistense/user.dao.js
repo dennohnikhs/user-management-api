@@ -31,10 +31,9 @@ const updateUser = (userId, newDetails) => {
 };
 const removeUser = (userId) => {
   // Find the index of the user to be removed using the findIndex method
-  // ? optional chaining is used to access deeply nested properties of an object without checking if each property in the chain exists
   const indexOfUserToDelete = users.findIndex((user) => user?.id === userId);
 
-  if (indexOfUserToDelete) {
+  if (indexOfUserToDelete !== -1) {
     // Remove the user from the array
     users.splice(indexOfUserToDelete, 1);
   }
